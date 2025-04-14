@@ -1,9 +1,12 @@
 Milk
-Bread
 Bananas
 Eggs
+Bacon
 
 Toiletries:
 Toothbrush
 Toothpaste
 Paper Towels
+
+Appliances:
+Microwave
