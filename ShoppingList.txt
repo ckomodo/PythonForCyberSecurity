@@ -3,3 +3,7 @@ Bread
 Bananas
 Eggs
 
+Toiletries:
+Toothbrush
+Toothpaste
+Paper Towels
