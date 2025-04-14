@@ -4,6 +4,6 @@
 
 opinion = input ("Is today a good day? y/n ")
 if opinion == "y":
-    print("Yes it is")
+    print(" Yes it is ")
 else: 
     print ("Call Ice Cube")
