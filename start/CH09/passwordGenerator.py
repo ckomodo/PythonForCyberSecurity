@@ -49,8 +49,9 @@ sha_postfix = hashed_password[5:].upper()
 #Check the password hash
 pwnd_dict = check_haveibeenpwned(sha_prefix)
 
-#Check results
+#Check results 
 if sha_postfix in pwnd_dict.keys():
     print("Password compromised {0} times".format(pwnd_dict[sha_postfix]))
 else:
     print("Secure password")
+
