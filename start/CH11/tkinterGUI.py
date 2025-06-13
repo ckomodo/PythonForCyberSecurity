@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Script that checks URLs against Google's Safe Browsing API
 # https://developers.google.com/safe-browsing/v4
-# By CW
+# By CW 06-12-2025
 
 #import modules
 import hashlib
@@ -24,15 +24,13 @@ def check_haveibeenpwned(sha_prefix):
         pwnd_dict[temp_pass[0]] = temp_pass[1]
     return pwnd_dict
 
-# Generate a random password of length 16
+# Generate a random password
 def generate_password(length):
     characters = string.ascii_letters + string.digits + string.punctuation
     return ''.join(random.choices(characters, k=length))
 
-
-
 def print_password():
-    password = generate_password(16)
+    password = generate_password(16) #limit to 16 characters only
     new_password = password
     #print("The password generated is " + password)
     return password
@@ -65,19 +63,17 @@ pwnd_dict = check_haveibeenpwned(sha_prefix)
 
 #Check results
 def user_password():
-    print("The password generated is " + print_password())
+    #print("The password generated is " + print_password())
     if sha_postfix in pwnd_dict.keys():
-
         my_label = tkinter.Label(window, text = "Password compromised {0} times".format(pwnd_dict[sha_postfix]), font = ("Calabria", 10), height='10', width='35')
         # print("Password compromised {0} times".format(pwnd_dict[sha_postfix]))
         my_label.pack()
         my_label.place(x=140, y=150)
     else:
-        my_label = tkinter.Label(window, text = "Secure Password: " + final_password(), relief="ridge",  borderwidth=2, font = ("Calabria", 10), height='10', width='60')
+        my_label = tkinter.Label(window, text = "Secure Password: " + print_password(), relief="ridge",  borderwidth=2, font = ("Calabria", 10), height='10', width='60')
         my_label.pack()
         my_label.place(x=100, y=50)
         #print("Secure Password")
-
 
 window = tkinter.Tk()
 window.geometry('620x620')
