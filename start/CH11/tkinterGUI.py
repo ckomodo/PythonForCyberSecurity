@@ -39,7 +39,7 @@ def print_password():
     
 #source: https://www.geeksforgeeks.org/generate-random-strings-for-passwords-in-python/
 
-print("The password generated is " + print_password())
+#print("The password generated is " + print_password())
 
 #print("your password is " + print_password())
 
@@ -63,23 +63,34 @@ sha_postfix = final_password()[5:].upper()
 #Check the password hash
 pwnd_dict = check_haveibeenpwned(sha_prefix)
 
-#Check results 
-if sha_postfix in pwnd_dict.keys():
-    print("Password compromised {0} times".format(pwnd_dict[sha_postfix]))
-else:
-   print("This password is Secure")
+#Check results
+def user_password():
+    print("The password generated is " + print_password())
+    if sha_postfix in pwnd_dict.keys():
+
+        my_label = tkinter.Label(window, text = "Password compromised {0} times".format(pwnd_dict[sha_postfix]), font = ("Calabria", 10), height='10', width='35')
+        # print("Password compromised {0} times".format(pwnd_dict[sha_postfix]))
+        my_label.pack()
+        my_label.place(x=140, y=150)
+    else:
+        my_label = tkinter.Label(window, text = "Secure Password: " + final_password(), font = ("Calabria", 10), height='10', width='55')
+        my_label.pack()
+        my_label.place(x=100, y=80)
+        #print("Secure Password")
 
 
 window = tkinter.Tk()
-window.geometry('420x420')
+window.geometry('520x520')
 window.title("Password Generator")
-
-icon = tkinter.PhotoImage(file='password.png')
-window.iconphoto(True, icon)
-
-
-button = tkinter.Button(window, text = "Generate Password")
+#button
+button = tkinter.Button(window, text = "Generate Password", font =("Calabria", 10))
 button.pack()
-
+button.place(x=140, y=350)
 window.config(background="#24d9dc")
+button.config(command=user_password) #performs callback of function.
+#label 
+# my_label = tkinter.Label(window, text = user_password, font = ("Calabria", 10), height='10', width='35')
+# my_label.pack()
+# my_label.place(x=140, y=150)
+
 window.mainloop()
