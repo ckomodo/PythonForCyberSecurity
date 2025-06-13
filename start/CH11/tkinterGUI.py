@@ -73,14 +73,14 @@ def user_password():
         my_label.pack()
         my_label.place(x=140, y=150)
     else:
-        my_label = tkinter.Label(window, text = "Secure Password: " + final_password(), font = ("Calabria", 10), height='10', width='55')
+        my_label = tkinter.Label(window, text = "Secure Password: " + final_password(), relief="ridge",  borderwidth=2, font = ("Calabria", 10), height='10', width='60')
         my_label.pack()
-        my_label.place(x=100, y=80)
+        my_label.place(x=100, y=50)
         #print("Secure Password")
 
 
 window = tkinter.Tk()
-window.geometry('520x520')
+window.geometry('620x620')
 window.title("Password Generator")
 #button
 button = tkinter.Button(window, text = "Generate Password", font =("Calabria", 10))
@@ -88,9 +88,5 @@ button.pack()
 button.place(x=140, y=350)
 window.config(background="#24d9dc")
 button.config(command=user_password) #performs callback of function.
-#label 
-# my_label = tkinter.Label(window, text = user_password, font = ("Calabria", 10), height='10', width='35')
-# my_label.pack()
-# my_label.place(x=140, y=150)
 
 window.mainloop()
